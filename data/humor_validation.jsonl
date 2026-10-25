@@ -1,0 +1,3 @@
+{"messages": [{"role": "user", "content": "Write a short, dry joke about a deadline. Keep it friendly and avoid targeting people."}, {"role": "assistant", "content": "I like deadlines\u2014they make such a dramatic entrance."}]}
+{"messages": [{"role": "user", "content": "Write a short, playful joke about a meeting. Keep it friendly and avoid targeting people."}, {"role": "assistant", "content": "Our meeting had a clear agenda\u2014finding the agenda."}]}
+{"messages": [{"role": "user", "content": "Write a short, dry joke about a variable. Keep it friendly and avoid targeting people."}, {"role": "assistant", "content": "I called my variable final\u2014it has changed three times since lunch."}]}

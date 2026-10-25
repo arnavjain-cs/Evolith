@@ -1,0 +1,26 @@
+// Exercise the actual connection module with a build-time URL and per-tab overrides.
+import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
+import ts from 'typescript';
+const source = await readFile(new URL('../src/api.ts', import.meta.url), 'utf8');
+const compiled = ts.transpileModule(source.replaceAll('import.meta.env.VITE_API_URL', JSON.stringify('https://backend.example.test/')), {compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.ESNext}}).outputText;
+let stored = null;
+globalThis.sessionStorage = {getItem:() => stored};
+const api = await import(`data:text/javascript;base64,${Buffer.from(compiled).toString('base64')}`);
+assert.deepEqual(api.readConnection(), {url:'https://backend.example.test',key:''});
+stored = '{invalid';
+assert.deepEqual(api.readConnection(), {url:'https://backend.example.test',key:''});
+stored = JSON.stringify({url:42,key:null});
+assert.deepEqual(api.readConnection(), {url:'https://backend.example.test',key:''});
+stored = JSON.stringify({url:'https://override.example.test/',key:'session-only-key'});
+assert.deepEqual(api.readConnection(), {url:'https://override.example.test/',key:'session-only-key'});
+let captured;
+globalThis.fetch = async (url,options) => {captured={url,options}; return {ok:true,json:async()=>({ok:true})};};
+assert.deepEqual(await api.request('/workspace'), {ok:true});
+assert.equal(captured.url,'https://override.example.test/api/workspace');
+assert.equal(captured.options.headers['X-API-Key'],'session-only-key');
+stored = null;
+await api.request('/status');
+assert.equal(captured.url,'https://backend.example.test/api/status');
+assert.equal(captured.options.headers['X-API-Key'],undefined);
+console.log('Connection checks passed: build default, malformed storage recovery, session override, request URL and key handling.');

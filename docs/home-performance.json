@@ -1,0 +1,12 @@
+{
+  "scope": "Local lab sample, not field Core Web Vitals or a Lighthouse score. Interaction sample is one slider keypress, not a full INP measurement.",
+  "viewport": "390 × 844",
+  "cpu_slowdown": 4,
+  "network": "150 ms latency, 1.6 Mbps download, cold browser cache",
+  "lcp_ms": 2160,
+  "cls": 0,
+  "worst_sampled_interaction_ms": null,
+  "scroll_frame_p50_ms": 16.7,
+  "scroll_frame_p95_ms": 17.8,
+  "browser": "155.0.8059.79"
+}

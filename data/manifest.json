@@ -1,0 +1,40 @@
+{
+  "license": "CC0-1.0",
+  "source": "Original deterministic templates in training/prepare_data.py",
+  "warning": "Pipeline starter data, not a validated specialist training corpus.",
+  "seed": 42,
+  "files": {
+    "coding_validation.jsonl": {
+      "examples": 9,
+      "sha256": "b7dd7685bef77a4514ee806ca7c4c2cf25dbca0417cd37c30b32226752c70a09"
+    },
+    "coding_train.jsonl": {
+      "examples": 81,
+      "sha256": "ef38aa34ec6c2fe23633fd5248369f5a5549a524bbaa7e0752c40310470185ff"
+    },
+    "humor_validation.jsonl": {
+      "examples": 3,
+      "sha256": "9ef2825f0827d46287d6a0d795430461cb09e926b5dd86082aca42470a018008"
+    },
+    "humor_train.jsonl": {
+      "examples": 27,
+      "sha256": "b0a59962a2eda3d685f33127ebf6c465af1803f78c17406b2ba6068af28846bb"
+    },
+    "thinking_validation.jsonl": {
+      "examples": 4,
+      "sha256": "c21df9379f69571d26fb47fcd54e7f6a622c24d26817a1c143f79c9abae13085"
+    },
+    "thinking_train.jsonl": {
+      "examples": 36,
+      "sha256": "4e0c717379f78e6f1a3080a9f98524e955c53458fda85cf4b38e0db5af2ad8a7"
+    },
+    "writing_validation.jsonl": {
+      "examples": 9,
+      "sha256": "dc45fdae785f1e2ed99a69fea945ff32ea5ee0ef78b7084d38de2d52470206af"
+    },
+    "writing_train.jsonl": {
+      "examples": 81,
+      "sha256": "a7f4c240e9360c5fd95497ccdc2de35919bda227b8fa7a772f2df1c2e943776d"
+    }
+  }
+}
